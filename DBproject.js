@@ -14,7 +14,7 @@ const schema = mongoose.model("users", {
   password: String,
 });
 
-app.post("/signup", async (req, res) => {
+app.post("/signup", async (req, res) => {  // Create User
   // create user Route
   const userName = req.headers.user;
   const email = req.headers.email;
@@ -38,7 +38,7 @@ app.post("/signup", async (req, res) => {
   res.json(`User Created Successfully ${newUser._id}`);
 });
 
-app.post("/update", async (req, res) => {
+app.post("/update", async (req, res) => {  // Update User
   // update user Route
   const id = req.headers.id;
   const userName = req.headers.username;
@@ -64,7 +64,7 @@ app.post("/update", async (req, res) => {
   res.json("User Updated Succesfully");
 });
 
-app.post("/delete", async (req, res) => {
+app.post("/delete", async (req, res) => {  // Delete User
   // delete user Route
   const id = req.headers.id;
   const removeUser = await schema.deleteOne({
